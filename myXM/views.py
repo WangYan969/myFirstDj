@@ -6,5 +6,15 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    print 1761266747
     return render(request,"index.html")
+def loginPage(request):
+    return render(request,"loginPage.html")
+def loginOn(request):
+    user=request.POST['user']
+    pwd=request.POST['pwd']
+    print user,pwd
+def capPage(request):
+    return render(request,"capPage.html")
+def capitalize(request):
+    cap=request.POST['cap']
+    print cap.capitalize()

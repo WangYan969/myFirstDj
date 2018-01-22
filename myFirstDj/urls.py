@@ -19,4 +19,8 @@ from myXM import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
+    url(r'^loginPage/', views.loginPage),
+    url(r'^loginOn/', views.loginOn),
+    url(r'^capPage/', views.capPage),
+    url(r'^capitalize/', views.capitalize),
 ]

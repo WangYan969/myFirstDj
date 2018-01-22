@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" hred="/static/bootstrap.min.css">
+    <script src="/static/js/jquery-2.2.4.min .js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
 </head>
 <body>
-   sadasjhdjhsadjh
+    <input type="button" value="登录" class="btn btn-primary" id="loginPage">
+    <input type="button" value="大写" class="btn btn-primary" id="capPage">
 </body>
+    <script type="text/javascript">
+        $("#loginPage").on("click",function() {
+            location.href="/loginPage/"
+        })
+        $("#capPage").on("click",function() {
+            location.href="/capPage/"
+        })
+    </script>
 </html>
