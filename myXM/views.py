@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-
+from myModel.loginModel import loginModel
 # Create your views here.
 
 def index(request):
@@ -13,6 +13,15 @@ def loginOn(request):
     user=request.POST['user']
     pwd=request.POST['pwd']
     print user,pwd
+    lgM=loginModel()
+    result=lgM.loginOn(user,pwd)
+
+
+
+
+
+
+
 def capPage(request):
     return render(request,"capPage.html")
 def capitalize(request):
