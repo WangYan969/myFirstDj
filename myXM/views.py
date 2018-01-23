@@ -29,6 +29,7 @@ def registerOn(request):
     pwd = request.POST['pwd']
     rgM=registerModel()
     result=rgM.registerOn(user,pwd)
+    return HttpResponseRedirect("/")
 
 
 
