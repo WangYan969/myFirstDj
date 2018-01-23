@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponseRedirect   #用于重定向
 from django.shortcuts import render
 from myModel.loginModel import loginModel
+from myModel.registerModel import registerModel
 # Create your views here.
 
 def index(request):
@@ -18,6 +19,22 @@ def loginOn(request):
         return HttpResponseRedirect("/")
     else:
         return render(request,"error.html")
+
+
+def registerPage(request):
+    return render(request,"registerPage.html")
+def registerOn(request):
+    # print 123
+    user = request.POST['user']
+    pwd = request.POST['pwd']
+    rgM=registerModel()
+    result=rgM.registerOn(user,pwd)
+
+
+
+
+
+
 
 
 

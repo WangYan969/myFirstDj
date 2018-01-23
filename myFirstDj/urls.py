@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^loginOn/', views.loginOn),
     url(r'^capPage/', views.capPage),
     url(r'^capitalize/', views.capitalize),
+    url(r'^registerPage/', views.registerPage),
+    url(r'^registerOn/', views.registerOn),
+
 ]
