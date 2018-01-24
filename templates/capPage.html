@@ -6,20 +6,36 @@
     <link rel="stylesheet" hred="/static/bootstrap.min.css">
     <script src="/static/js/jquery-2.2.4.min .js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <style>
+
+
+    .top_left,.top_mid,.top_right,.botton_left,.botton_right{
+            display:inline-block;
+        }
+    </style>
 </head>
 <body>
     <form action="/myXM/capitalize/" method="POST">
-        <table>
-            <tr>
-                <td>需要大写的:</td>
-                <td><input type="text" name="cap"></td>
-            </tr>
-            <tr>
-                <td colspan=2>
+        <div class="main">
+            <div class="top">
+                <div class="top_left">
+                    <td>需要首字母大写的:</td>
+                </div>
+                <div class="top_mid">
+                    <input type="text"name="cap">
+                </div>
+                <div class="top_right">
                     <input type="submit" value="确定">
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="botton_left">
+                    <td>首字母大写成功的:</td>
+                </div>
+                <div class="botton_right">
+                    <textarea name="cap_result" id="" cols="19" rows="1"></textarea>
+                </div>
+            </div>
     </form>
 </body>
 </html>

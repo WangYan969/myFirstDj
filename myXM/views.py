@@ -43,6 +43,7 @@ def capPage(request):
     return render(request,"capPage.html")
 def capitalize(request):
     cap=request.POST['cap']
+    cap_result=request.POST['cap']
     for x in cap.split():
         print x.capitalize(),
     # print cap.capitalize()
