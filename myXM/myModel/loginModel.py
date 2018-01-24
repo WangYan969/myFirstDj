@@ -5,7 +5,6 @@ class loginModel(object):
     def loginOn(self,user,pwd):
         try:
             result=models.user.objects.get(userName=user)
-            print result.passWord
             if result.passWord==pwd:
                 return 1
             else:

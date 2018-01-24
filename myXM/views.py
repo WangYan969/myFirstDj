@@ -16,31 +16,27 @@ def loginOn(request):
     lgM=loginModel()
     result=lgM.loginOn(user,pwd)
     if result==1:
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/myXM/mainPage/")
     else:
         return render(request,"error.html")
 
 
 def registerPage(request):
     return render(request,"registerPage.html")
+
 def registerOn(request):
-    # print 123
     user = request.POST['user']
     pwd = request.POST['pwd']
     rgM=registerModel()
     result=rgM.registerOn(user,pwd)
-    return HttpResponseRedirect("/")
+    print user,pwd
+    return HttpResponseRedirect("/myXM/")
 
+def mainPage(request):
+    return render(request,"mainPage.html")
 
-
-
-
-
-
-
-
-
-
+def ciYunPage(request):
+    return render(request,"ciYunPage.html")
 
 
 def capPage(request):

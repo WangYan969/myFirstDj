@@ -16,14 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from myXM import views
+from myFirstDj.router import DynamicRouter
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
-    url(r'^loginPage/', views.loginPage),
-    url(r'^loginOn/', views.loginOn),
-    url(r'^capPage/', views.capPage),
-    url(r'^capitalize/', views.capitalize),
-    url(r'^registerPage/', views.registerPage),
-    url(r'^registerOn/', views.registerOn),
-
+    url('^(?P<app>(\w+))/(?P<function>(\w+))/$',DynamicRouter),
+    url('^(?P<app>(\w+))/$',DynamicRouter,{"function":"index"}),
 ]

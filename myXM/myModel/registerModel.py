@@ -1,13 +1,11 @@
 # coding:utf-8
 from myXM import models
+import uuid
 
 class registerModel(object):
     def registerOn(self,user,pwd):
         try:
-            # myxm_user1=user(userName=user,passWord=pwd)
-            # myxm_user1.save()
-            # print result.passWord
-            models.user.objects.create(userName=user,passWord=pwd)
-            print 22222222
+            models.user.objects.create(id=uuid.uuid4(),userName=user,passWord=pwd)
+            return 1
         except:
             return -1
