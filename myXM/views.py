@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect   #用于重定向
 from django.shortcuts import render
 from myModel.loginModel import loginModel
 from myModel.registerModel import registerModel
+from myModel import ciYunModel
+from PIL import Image
 # Create your views here.
 
 def index(request):
@@ -37,6 +39,24 @@ def mainPage(request):
 
 def ciYunPage(request):
     return render(request,"ciYunPage.html")
+
+def makeCiYun(request):
+    wenBen=request.POST["wenBen"]
+    tuPian=request.FILES['tuPian']
+    print 2334
+    result=ciYunModel.makeIt(tuPian,wenBen)
+    print 555555
+
+
+
+
+
+
+
+
+
+
+
 
 
 def capPage(request):
