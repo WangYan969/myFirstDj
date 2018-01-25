@@ -6,6 +6,7 @@ from myModel.loginModel import loginModel
 from myModel.registerModel import registerModel
 from myModel import ciYunModel
 from PIL import Image
+from os import path
 # Create your views here.
 
 def index(request):
@@ -43,9 +44,11 @@ def ciYunPage(request):
 def makeCiYun(request):
     wenBen=request.POST["wenBen"]
     tuPian=request.FILES['tuPian']
-    print 2334
     result=ciYunModel.makeIt(tuPian,wenBen)
-    print 555555
+    img=Image.open(tuPian)
+    savePath= path.join(path.dirname(__file__),"static/img/yuan.jpg")
+    img.save(savePath)
+    return HttpResponseRedirect("/myXM/ciYunPage")
 
 
 
