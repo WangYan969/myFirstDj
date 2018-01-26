@@ -52,8 +52,10 @@ def makeCiYun(request):
 
 
 
-
-
+def buyTicket(request):
+    loginUrl="https://kyfw.12306.cn/otn/login/init"
+    userName="axj5562880"
+    passWord="AXJ5562880"
 
 
 
