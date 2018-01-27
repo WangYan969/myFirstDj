@@ -86,7 +86,7 @@ class buy_ticket_obj(object):
             print u"开始预定...."
             sleep(1)
             print u'开始选择用户'
-            for user in self.users:
+            for user in self.passengers:
                 print 88888888888888
                 self.driver.find_by_text(user).click()
             print u"提交订单..."
