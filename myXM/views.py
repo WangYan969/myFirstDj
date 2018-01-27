@@ -7,8 +7,9 @@ from myModel.registerModel import registerModel
 from myModel import ciYunModel
 from PIL import Image
 from os import path
+from myModel.ticketModel import buy_ticket_obj
 # Create your views here.
-
+from time import sleep
 def index(request):
     return render(request,"index.html")
 def loginPage(request):
@@ -50,14 +51,33 @@ def makeCiYun(request):
     img.save(savePath)
     return HttpResponseRedirect("/myXM/ciYunPage")
 
+def buyTicketPage(request):
+    return render(request, "ticketPage.html")
 
 
+# def buyTicket(request):
+#     loginUrl="https://kyfw.12306.cn/otn/login/init"
+#     userName="axj5562880"
+#     passWord="AXJ5562880"
 def buyTicket(request):
-    loginUrl="https://kyfw.12306.cn/otn/login/init"
-    userName="axj5562880"
-    passWord="AXJ5562880"
-
-
+    print 12345
+    username = 'DynastY'
+    password = "wangyan1110"
+    # 车次选择， 0 代表所有车次
+    order = 0
+    #乘客名['XX', 'XXX']
+    #学生票须注明['XX(学生)']
+    passengers = ['龙雪(学生)']
+    # 日期，格式为：'2018-01-26'
+    dtime = '2018-02-03'
+    # 出发地（需填写cookie值）
+    starts = '%u54C8%u5C14%u6EE8%2CHBB'
+    # 目的地
+    ends = '%u6602%u6EAA%CAAX'
+    bt = buy_ticket_obj(username, password, order, passengers, dtime, starts, ends)
+    bt.buy_ticket()
+    sleep(20)
+    return 1
 
 
 
