@@ -67,13 +67,13 @@ def buyTicket(request):
     order = 0
     #乘客名['XX', 'XXX']
     #学生票须注明['XX(学生)']
-    passengers = ['龙雪(学生)']
+    passengers = ['王岩(学生)']
     # 日期，格式为：'2018-01-26'
-    dtime = '2018-02-03'
+    dtime = '2018-01-28'
     # 出发地（需填写cookie值）
     starts = '%u54C8%u5C14%u6EE8%2CHBB'
     # 目的地
-    ends = '%u6602%u6EAA%CAAX'
+    ends = '%u5317%u4EAC%2CBJP'
     bt = buy_ticket_obj(username, password, order, passengers, dtime, starts, ends)
     bt.buy_ticket()
     sleep(20)

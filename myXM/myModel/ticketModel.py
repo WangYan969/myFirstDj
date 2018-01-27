@@ -72,13 +72,13 @@ class buy_ticket_obj(object):
                 print u"循环点击查询....第%s次" % count
                 sleep(1)
                  # 要买的票的有无的那个标签的id
-                tarVal = self.driver.find_by_id('YZ_Oh000K705705').value
+                tarVal = self.driver.find_by_id('ZE_0h0000G38208').value
                 print tarVal
                 if tarVal ==u'有':
                     if self.order != 0:
-                        self.driver.find_by_text(u"预定")[self.order - 1].click()
+                        self.driver.find_by_text(u"预订")[self.order - 1].click()
                     else:
-                        self.driver.find_by_text(u"预定")[0].click()
+                        self.driver.find_by_text(u"预订")[0].click()
                     break
                 else:
                     continue
@@ -87,11 +87,27 @@ class buy_ticket_obj(object):
             sleep(1)
             print u'开始选择用户'
             for user in self.users:
+                print 88888888888888
                 self.driver.find_by_text(user).click()
-            print u'提交订单'
+            print u"提交订单..."
+            # #这里是买票种  1 成人  2 儿童 3 学生 4 残疾  参数是name
+            self.driver.find_by_xpath('//select[@id="ticketType_1"]/option[@value="0"]')._element.click()
+            sleep(1)
+            # # 席座  1硬座   3 硬卧   4软卧   9商务座  O是二等座(是o不是0)  M一等座
+            self.driver.find_by_xpath('//select[@id="seatType_1"]/option[@value="1"]')._element.click()
+            sleep(1)
+            # 提交订单
+            print u"提交订单..."
+            self.driver.find_by_id('submitOrder_id').click()
+            sleep(1.5)
+            print u"确认选座..."
+            self.driver.find_by_id('qr_submit_id').click()
+            print 123456789
+            return True
 
         except:
-            print "uuuuuuuu"
+            print "出错了"
+            return False
 
 
 
