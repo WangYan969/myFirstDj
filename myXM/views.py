@@ -8,6 +8,7 @@ from myModel import ciYunModel
 from PIL import Image
 from os import path
 from myModel.ticketModel import buy_ticket_obj
+from myModel import caiPiaoModel
 # Create your views here.
 from time import sleep
 def index(request):
@@ -80,10 +81,6 @@ def buyTicket(request):
     return 1
 
 
-
-
-
-
 def capPage(request):
     return render(request,"capPage.html")
 def capitalize(request):
@@ -92,3 +89,10 @@ def capitalize(request):
     for x in cap.split():
         print x.capitalize(),
     # print cap.capitalize()
+
+def futureMoneyPage(request):
+    return render(request,"futureMoneyPage.html")
+def futureMoney(request):
+    fm=request.POST['neiRong']
+    print fm
+    caiPiaoModel.makeMoney(fm)
