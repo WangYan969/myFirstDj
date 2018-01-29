@@ -38,7 +38,7 @@ def makeMoney(neiRong):
 # ============================
     X2 = X
     Y2 = clf.predict(X2)
-    print 1
+
     plt.figure()
     plt.title(u'my test')
     plt.xlabel(u'历史',fontproperties="SimHei")
@@ -49,9 +49,6 @@ def makeMoney(neiRong):
     plt.plot(X2, Y2, 'g--', label="$%s$" % "jgsj")  # 绘制预测数据集直线  绿色的实线
     plt.legend()   #出图
     plt.show()
-    print 11111111111111111111
-
-
     return ""
 if __name__=="__main__":
-    makeMoney("213")
+    makeMoney("654")
