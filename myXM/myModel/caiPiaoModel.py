@@ -40,7 +40,7 @@ def makeMoney(neiRong):
     Y2 = clf.predict(X2)
     print 1
     plt.figure()
-    plt.title(u'mt test')
+    plt.title(u'my test')
     plt.xlabel(u'历史',fontproperties="SimHei")
     plt.ylabel(u'new')
     plt.axis([0,1000,0,1000])
