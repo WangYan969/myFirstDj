@@ -50,5 +50,5 @@ def makeMoney(neiRong):
     plt.legend()   #出图
     plt.show()
     return ""
-if __name__=="__main__":
-    makeMoney("654")
+# if __name__=="__main__":
+#     makeMoney("654")
