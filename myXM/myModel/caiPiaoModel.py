@@ -48,7 +48,9 @@ def makeMoney(neiRong):
     plt.plot(X,Y,'r.',label="$%s$" % "ycsj")  #绘制训练数据集散点图 xy红色的点
     plt.plot(X2, Y2, 'g--', label="$%s$" % "jgsj")  # 绘制预测数据集直线  绿色的实线
     plt.legend()   #出图
-    plt.show()
-    return ""
+    CAIPIAO_DIR=os.path.abspath(os.path.join(BASE_DIR,"static/img/caiPiao.jpg"))
+    plt.savefig(CAIPIAO_DIR)
+
+    return result, "/static/img/caiPiao.jpg"
 # if __name__=="__main__":
 #     makeMoney("654")

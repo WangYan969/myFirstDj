@@ -15,7 +15,9 @@
                 <span class="glyphicon glyphicon-search"></span>
             </button>
         </div>
+        <input type="text" class="form-control" id="jieGuo" disabled>
     </div>
+    <img src="" alt="" id="tuPian">
 </body>
 <script type="text/javascript">
     function yuce() {
@@ -25,6 +27,10 @@
             var url="/myXM/futureMoney/";
             var data={neiRong:v};
             $.post(url,data,function (result) {
+                console.info(result)
+                $("#jieGuo").val(result.jieGuo)
+                $("#tuPian").attr("src",result.luJing)
+
 
             },"json")
         }else{

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponseRedirect   #用于重定向
+from django.http import HttpResponse
 from django.shortcuts import render
 from myModel.loginModel import loginModel
 from myModel.registerModel import registerModel
@@ -9,6 +10,7 @@ from PIL import Image
 from os import path
 from myModel.ticketModel import buy_ticket_obj
 from myModel import caiPiaoModel
+import json
 # Create your views here.
 from time import sleep
 def index(request):
@@ -94,5 +96,10 @@ def futureMoneyPage(request):
     return render(request,"futureMoneyPage.html")
 def futureMoney(request):
     fm=request.POST['neiRong']
-    print fm
-    caiPiaoModel.makeMoney(fm)
+    # print fm
+    result,luJing=caiPiaoModel.makeMoney(fm)
+    content={}
+    content["jieGuo"]=result
+    content["luJing"]=luJing
+    content_json=json.dumps(content)
+    return HttpResponse(content_json,content_type="application/json")
