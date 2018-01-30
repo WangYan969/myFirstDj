@@ -11,6 +11,8 @@ from os import path
 from myModel.ticketModel import buy_ticket_obj
 from myModel import caiPiaoModel
 import json
+import urllib2
+import urllib
 # Create your views here.
 from time import sleep
 def index(request):
@@ -103,3 +105,17 @@ def futureMoney(request):
     content["luJing"]=luJing
     content_json=json.dumps(content)
     return HttpResponse(content_json,content_type="application/json")
+def robotPage(request):
+    return render(request,"robotPage.html")
+def robot(request):
+    neirong=request.POST['neirong'].encode("utf-8")
+    API_KEY="ff13b2b9bfd14666afccc234b7ad674e"
+    raw_TULINURL="http://www.tuling123.com/openapi/api?key=%s&info=%s" % (API_KEY,neirong)
+    send_content={}
+    send_content["key"]=API_KEY
+    send_content["info"]=neirong
+    send_content["userid"]='1112'
+    data=urllib.urlencode(send_content)   #适合urllib对数据进行格式化编码
+    req = urllib2.Request(url=raw_TULINURL)
+    result = urllib2.urlopen(req).read()
+    return HttpResponse(result)
