@@ -17,4 +17,6 @@ class Spider_man(object):
             new_url=self.urls.get_new_url()
             print "第{0[0]}个,地址是{0[1]}".format([count,new_url])
             html_content=self.downloder.download(new_url)
-            print html_content
+            # print html_content
+            new_urls,new_data=self.parser.parpase(new_url,html_content)
+            print new_urls,new_data
