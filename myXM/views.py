@@ -6,6 +6,7 @@ from django.shortcuts import render
 from myModel.loginModel import loginModel
 from myModel.registerModel import registerModel
 from myModel import ciYunModel
+from myPaChong.spider_man import Spider_man
 from PIL import Image
 from os import path
 from myModel.ticketModel import buy_ticket_obj
@@ -13,6 +14,7 @@ from myModel import caiPiaoModel
 import json
 import urllib2
 import urllib
+
 # Create your views here.
 from time import sleep
 def index(request):
@@ -119,3 +121,9 @@ def robot(request):
     req = urllib2.Request(url=raw_TULINURL)
     result = urllib2.urlopen(req).read()
     return HttpResponse(result)
+def paChongPage(request):
+    return render(request,"paChongPage.html")
+def paYiPa(request):
+    wangzhi=request.POST['wangzhi']
+    obj_spider=Spider_man()
+    result=obj_spider.pa(wangzhi)
