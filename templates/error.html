@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>error</title>
-    <link rel="stylesheet" hred="/static/css/bootstrap.min.css">
-    <script src="/static/js/jquery-2.2.4.min .js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+    <title>Title</title>
+     <script src="/static/js/jquery-2.2.4.min .js"></script>
 </head>
 <body>
-    <form >
-        <table>
-            <tr>
-                <td>错误了呀</td>
-            </tr>
-        </table>
-    </form>
-
+    <div>
+        <h3 id="content">这是错误页面,5秒后回首页</h3>
+        <h3><a href="/myXM/">回首页</a></h3>
+    </div>
 </body>
+<script type="text/javascript">
+        function daoJiShi(n) {
+            $("#content").html("这是错误页面,"+n+"秒后回首页")
+        }
+        var count=4;
+        setInterval(function () {
+            daoJiShi(count);
+            count--;
+            if(count==-1){
+                location.href="/myXM/";
+            }
+        },1000)
+</script>
 </html>

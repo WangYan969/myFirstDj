@@ -7,6 +7,7 @@ from myModel.loginModel import loginModel
 from myModel.registerModel import registerModel
 from myModel import ciYunModel
 from myPaChong.spider_man import Spider_man
+
 from PIL import Image
 from os import path
 from myModel.ticketModel import buy_ticket_obj
@@ -30,7 +31,8 @@ def loginOn(request):
         return HttpResponseRedirect("/myXM/mainPage/")
     else:
         return render(request,"error.html")
-
+def error(request):
+    render(request,"error.html")
 
 def registerPage(request):
     return render(request,"registerPage.html")
@@ -127,3 +129,19 @@ def paYiPa(request):
     wangzhi=request.POST['wangzhi']
     obj_spider=Spider_man()
     result=obj_spider.pa(wangzhi)
+    print 222
+    print result
+    return HttpResponse(result,content_type="application/text")
+
+
+
+def jieGuoPage(request):
+    return render(request,"jieGuo.html")
+
+
+
+
+
+
+
+

@@ -15,6 +15,13 @@
                 爬取
             </button>
         </div>
+    </div><div class="input-group col-xs-3" >
+        <input type="text" class="form-control" id="wangzhi2" placeholder="请输入要爬取的网址" value="movie.douban.com/top250">
+        <div class="input-group-btn" >
+            <button class="btn btn-primary" onclick="paqu2()">
+                爬取
+            </button>
+        </div>
     </div>
 </body>
 <script type="text/javascript">
@@ -22,7 +29,26 @@
         var myData="https://"+$("#wangzhi").val();
         var url="/myXM/paYiPa/";
         var data={wangzhi:myData};
-        $.post(url,data,function () {
+        $("body").html("爬取中...");
+        $.post(url,data,function (result) {
+            if (result==1){
+                location.href="/myXM/jieGuoPage/"
+            }else {
+                location.href="/myXM/error/"
+            }
+        },"text")
+    }function paqu2() {
+        var myData2="https://"+$("#wangzhi2").val();
+        var url2="/myXM/paYiPa2/";
+        var data2={wangzhi2:myData2};
+        $("body").html("爬取中");
+        $.post(url2,data2,function (result) {
+            if (result==1){
+                location.href="/myXM/jieGuoPage2/"
+            }
+            else {
+                location.href="/myXM/error/"
+            }
 
         },"text")
     }
