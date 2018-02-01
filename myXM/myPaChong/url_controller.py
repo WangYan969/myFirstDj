@@ -16,3 +16,7 @@ class UrlControl(object):
         new_url=self.new_urls.pop()
         self.old_urls.add(new_url)
         return new_url
+
+    def add_new_urls(self, new_urls):
+        for url in new_urls:
+            self.add_new_url(url)

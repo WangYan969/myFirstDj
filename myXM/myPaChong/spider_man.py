@@ -19,4 +19,6 @@ class Spider_man(object):
             html_content=self.downloder.download(new_url)
             # print html_content
             new_urls,new_data=self.parser.parpase(new_url,html_content)
-            print new_urls,new_data
+            self.outputer.collect_data(new_data)   #存数据
+            self.urls.add_new_urls(new_urls)   #存url
+        self.outputer
